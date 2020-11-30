@@ -1,628 +1,114 @@
-*
-{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
-body
-{
-	background-image: url("img/piggybank.jpg");
-	background-size: cover;
-	position: relative; 
-	font-family: 'Lora', sans-serif;
-    font-size: 18px;
-	padding-bottom: 60px;
-	min-height: 100vh;
-	
+body {
+    font-size: 10px;
+    font-family: Tahoma, Arial;
 }
 
-#login .container #login-row #login-column #login-box 
-{
-	background-color: white;
-	max-width: 400px;
-	padding: 30px;
-	margin-top: 40px;
-	-webkit-box-shadow: 5px 5px 23px 3px rgba(158,158,158,0.9);
-	-moz-box-shadow: 5px 5px 23px 3px rgba(158,158,158,0.9);
-	box-shadow: 5px 5px 23px 3px rgba(158,158,158,0.9);
+div.menu {
+    width: 100%;
+    background-color: #4d5791;
+    height: 44px;
+    padding: 0 40px;
 }
 
-#login .container #login-row #login-column #login-box #login-form 
-{
-  padding: 10px;
+div.menu ul,
+div.menu ul li {
+    margin: 0;
+    padding: 0 ;
+    list-style: none;
+    display: inline-block;
 }
 
-h2
-{	text-align: center;
-	font-weight: 500;
-	letter-spacing: 2px;
-	margin-bottom: 10px
+div.menu ul li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 44px;
+    font-size: 1.4em;
+    text-decoration: none;
+    color: #fff;
+    margin: 0;
 }
 
-#error
-{
-	color: red;
-	margin-bottom: 5px;
-	width: 300px;
-	font-size: 14px;
-	background: rgba(255,0,0,0.1);
-	border-radius: 5px;
-	text-align: center;
-	box-sizing: border-box;
-
-}
-
-.label
-{
-	font-size: 18px;
-	margin: 10px 0;
-	font-weight: 400;
-}
-
-.input
-{
-	max-width: 350px;
-	min-width: 300px;
-	background-color: #eee;
-	margin-bottom: 10px;
-	border: 2px solid #ddd;
-	border-radius: 5px;
-	font-size: 18px;
-	padding: 10px;
-	box-sizing: border-box;
-	outline: none;
-}
-
-.category
-{
-	margin-right: 200px;
-}
-
-@media (max-width: 1200px)
-{
-	.category
-	{
-		margin-right: 80px;
-	}
-	
-	@media (max-width: 992px)
-	{
-		.category
-		{
-			margin-right: 0;
-		}
-		
-	}
-}
-
-.input:focus
-{	-webkit-box-shadow: 0px 0px 10px 3px rgba(158,158,158,0.9);
-	-moz-box-shadow: 0px 0px 10px 3px rgba(158,158,158,0.9);
-	box-shadow: 0px 0px 10px 3px rgba(158,158,158,0.9);
-	border: 2px solid #a5cda5;
-	background-color: #e9f3e9;
-	color: #438d43;
-	
-}
-
-button .btn-lg
-{
-	max-width: 350px;
-	background-color: #35a03b !important;
-	font-size: 20px;
-	color: #fff !important;
-	padding: 15px 10px;
-	margin-top:20px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	letter-spacing: 2px;
-	outline: none;
-}
-
-button .btn-lg:hover
-{
-	background-color: #36b03c !important;
-}
-
-button .btn-lg:focus
-{
-	-webkit-box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-	-moz-box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-	box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-}
-
-.form
-{
-	margin-top: 10px;
-}
-
-.small
-{
-    color: #222;
-	font-size: 16px;
-    cursor: pointer;
-}
-
-.small:hover 
-{
-    text-decoration: underline;
-}
-
-h1
-{
-	font-family: 'Cinzel', serif;
-	text-align: center;
-	font-size: 36px;
-	color: #daa520;
-	margin-top: 25px;
-}
-
-h3
-{
-	text-align: center;
-	font-size: 28px;
-	color: #222;
-	font-weight: 500;
-	margin-top: 100px;
-}
-
-header .navbar
-{
-	background: #001a00;
-	width: 100%;
-	height: 100px;
-}
-
-.navbar-brand
-{
-	width: 90px;
-	height: 90px;
-	overflow: hidden;
-
-}
-
-.navbar-brand img
-{
-	transition: all 0.5s ease-in-out;
-	
-}
-
-.navbar-brand:hover img
-{
-	-webkit-transform: scale(1.05) rotate(-3deg);
-	-ms-transform: scale(1.05) rotate(-3deg);
-	transform: scale(1.05) rotate(-3deg);
-}
-
-.btn 
-{
-	background-color: #35a03b;
-	color: #fff;
-	padding: 10px;
-	margin-top: 5px;
-	margin-left: 5px;
-	margin-right: 5px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	letter-spacing: 2px;
-	text-decoration: none;
-	outline: none;
-}
-
-.btn 
-{
-	background-color:#36b03c;
-}
-
-.btn:focus
-{
-	-webkit-box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-	-moz-box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-	box-shadow: 0px 0px 15px 4px rgba(158,158,158,0.9);
-}
-
-@media (max-width: 992px)
-{
-	h1
-	{	
-		text-align: left;
-		font-size: 25px;
-	}
-	
-	.h2
-	{
-		margin: 80px 20px;
-		text-align: left;
-		font-size: 24px;
-	}
-	
-	@media (max-width: 767px)
-	{
-		h1
-		{	
-			padding-right: 18px;
-			padding-left: 17px;
-			text-align: center !important;
-			font-size: 26px;
-		}
-		
-		.h2
-		{
-			margin: 80px 20px;
-			text-align: left;
-			font-size: 22px;
-		}
-		
-		@media (max-width: 576px)
-		{
-			h1
-			{
-				text-align: center;
-				font-size: 26px;
-			}
-			
-			.h2
-			{
-				margin-top: 120px;
-				text-align: left;
-				font-size: 22px;
-			}
-				
-			
-		}
-		
-	}
-	
-}
-
-.text-body
-{
-	max-width: 1200px;
-}
-
-.footer
-{
-	position: absolute;
-	padding:20px;
-	line-height: 20px;
-	background-color: #001a00;
-	font-size: 14px;
-	text-align: center;
-	color: #F0F7D4;
-	right: 0;
-	left: 0;
-	bottom: 0;
-	letter-spacing: 2px;
-	opacity: 0.8;
-	
-}
-
-@media (max-width: 768px)
-{
-	.footer
-	{
-		padding: 10px;
-	}
-	
-}
-
-.menu
-{
-	background-color: #86b300;
-	margin-top: 20px;
-	margin-bottom: 25px;
-}
-
-.navbar
-{
-	min-height: 52px;
-}
-
-
-
-.navbar-nav li:hover>.dropdown-menu
-{
-	display: block;
-}
-
-#mainmenu
-{
-	padding: 0;
-	margin: 0;
-	list-style-type: none;
-	font-size: 20px;
-	line-height: 150%;
-	text-align: center;
-}
-
-#mainmenu ul a
-{
-	color: #222;
-	text-decoration: none;
-	display: block;
-}
-
-#mainmenu ul > li
-{
-	float: left;
-	min-width: 180px;
-	height: 45px;
-	border-right: 1px dashed #659504;
-	
-}
-
-#mainmenu ul > li:first-child
-{
-	border-left: 1px dashed #659504;
-}
-
-#mainmenu ul > li:hover
-{
-	cursor: pointer;
-	background-color: #006600;
-}
-
-#mainmenu ul > li:hover a
-{
-	color: #daa520;
-	transition: 0.5s;
-}
-
-#mainmenu ul > li > .dropdown-menu
-{
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	height: 40px;
-	display: none;
-}
-
-#mainmenu ul > li:hover > .dropdown-menu
-{
-	display: block;
-	transition: 0.5s;
-}
-
-#mainmenu ul > li > .dropdown-menu > .dropdown-item
-{
-	background-color: #c6ff1a;
-	color: #222;
-	position: relative;
-	z-index: 100;
-	border-top: 1px dashed #659504;
-}
-
-#mainmenu ul > li > .dropdown-menu > .dropdown-item:hover
-{
-	background-color: #009900;
-	color: #ffa500;
-	transition: 0.5s;
-}
-
-@media (max-width: 768px)
-{
-	#mainmenu
-	{
-		text-align: left;
-	}
-	
-	#mainmenu ul > li
-	{
-		border-style: none;
-	}
-	
-	#mainmenu ul > li:first-child
-	{
-		border-style: none;
-	}
-	
-}
-
-.subtitle
-{
-	font-family: 'Cinzel', serif;
-	font-size: 28px;
-	color: #001a00;
-	font-weight: 400;
-	padding-top: 20px;
-}
-
-#addData
-{
-	margin-bottom: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: #fff;
-}
-
-.labelExpense
-{
-	float: left;
-	margin-left: 20px;
-	margin-bottom: 30px;
-}
-
-.titleExpense
-{
-	font-weight: 600;
-	color: #222;
-	padding-bottom: 20px;
-}
-
-
-.paymentAndCategories
-{
-	padding-bottom: 20px;
-}
-
-textarea
-{
-	border: 1px solid #001a00;
-	font-size: 14px;
-	margin-bottom:10px;
-	margin-top: 5px;
-	margin-left: 60px;
-}
-
-.expenseBtn
-{
-	padding-bottom: 30px;
-	float: left;
-}
-
-h5
-{
-	text-align: center;
-	font-size: 24px;
-	color: #001a00;
-	font-weight: 400;
-	padding-top: 20px;
-}
-
-.balanceTable
-{
-	border-collapse: collapse;
-	margin-left: 30px;
-	margin-top: 40px;
-	margin-right: 30px;
-	margin-bottom: 20px;
-	text-align: center;
-	border: 1px solid #111;
-}
-
-.balanceTable th, td
-{
-	padding: 8px;
-	width: 180px;
-}
-
-#expensesTable th
-{
-	background: #e60000;
-	color: #fff;
-}
-
-#expensesTable tr:nth-child(odd)
-{
-	background: #fff;
-}
-
-#expensesTable tr:nth-child(even)
-{
-	background: #ffcccc;
-}
-
-#incomesTable
-{
-	float: left;
-}
-
-#expensesTable
-{
-	float: left;
+div.menu ul li a:hover  {
+    background-color: white;
+    color: #4d5791;
 }
 
-#incomesTable th
-{
-	background: #00994d;
-	color: #fff;
+div.hero {
+    height: 350px;
+    background-color: #b4c6f0;
+    background-image: url("bg.png");
+    background-size: 400px;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-top: 40px;
 }
 
-#incomesTable tr:nth-child(odd)
-{
-	background: #fff;
+div.hero h1,
+div.hero h2 {
+    text-align: center;
+    margin: 0;
 }
 
-#incomesTable tr:nth-child(even)
-{
-	background: #b3ffd9;
+div.hero h1 {
+    color: #fff;
+    font-size: 4.2em;
+    margin-bottom: 20px;
 }
 
-#incomesTable .total 
-{
-	font-weight: 600;
+th {
+    font-size: 4.2em;
+    margin-bottom: 20px;
 }
 
-#expensesTable .total
-{
-	font-weight: 600;
+div.hero h2 {
+    color: #4d5791;
 }
 
-.chartContainer
-{
-	position: relative;
-	width: 500px;
-	height: 250px;
+.container {
+    padding: 40px;
+    width: 100%;
 }
 
-.revenue
-{
-	float: left;
+.page-area {
+    max-width: 768px;
+    display: inline-block;
 }
 
-.loss
-{
-	float: left;
+.bottom {
+    height: 50px;
+    background-color: #b4c6f0;
+    padding: 40px;
 }
 
-@media (max-width: 992px)
-{
-	.balanceTable
-	{
-		margin-left: 50px;
-		margin-top: 20px;
-		margin-right: 20px;
-		margin-bottom: 10px;
-	}
-	
-	.chartContainer
-	{
-		position: relative;
-		width: 480px;
-		height: 250px;
-	}
-	
-	#incomeChart
-	{
-		position: relative;
-		width: 400px;
-		height: 200px;
-	}
-	
-	#expenseChart
-	{
-		position: relative;
-		width: 400px;
-		height: 200px;
-	}
-	
-	section
-	{
-		padding-bottom: 10px;
-	}
-	
-	.balanceTable th, td
-	{
-		padding: 5px;
-		max-width: 150px;
-	}
-	
+.center {
+    text-align: center;
 }
 
-section
-{
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 5px;
-	margin-bottom: 20px;
-	border: 2px dotted #001a00;
+.container div.text-box {
+    display: inline-block;
+    width: 100%;
+    max-width: 340px;
+    text-align: justify;
+    margin: 20px;
 }
 
-#summary
-{
-	color: #006600;
-	text-align: center;
+div.table {
+    display: inline-block;
+    width: 100%;
+    max-width: 340px;
+    text-align: justify;
+    margin: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .container .div.text-box {
+        margin: 10px;
+    }
+    .container div.table {
+        margin: 10px;
+    }
 }
