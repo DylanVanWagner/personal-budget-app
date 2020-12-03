@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/main.css"/>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+      integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body id="login-body">
+    <!--website login-->
+    <div class="container-fluid" id="banner-login">
+      <div class="container" id="head-content">
+        <div id="head-title">
+          <div class="login-container">
+            <div class="row" id="login-header">
+              <h1>Login or create an account</h1>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="username">username</label>
+                <input type="text" name="username" id="username" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <button id="login-button" onclick="login()">Login</button>
+                <button id="signup-button" onclick="signUp()">Sign up</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer-->
+    <div class="footer">
+      <p>Author: Dylan Van Wagner</p>
+    </div>
+    <main></main>
+
+    <script>
+      function login() {
+        const data = {
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+        };
+        axios.post("/api/login", data).then((res) => {
+          console.log(res);
+          document.getElementById("username").value = "";
+          document.getElementById("password").value = "";
+          if (res && res.data && res.data.success) {
+            const token = res.data.token;
+            localStorage.setItem("jwt", token);
+            getDashboard();
+          }
+        });
+      }
+
+      function getDashboard() {
+        axios
+          .get("./dashboard.html", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            },
+          })
+          .then((res) => {
+            if (res && res.data && res.data.success) {
+              //document.querySelector("footer").innerHTML = "Dashboard";
+              document.querySelector("body").innerHTML = res.data.myContent;
+              history.pushState(null, null, "./dashboard.html");
+            }
+          });
+      }
+
+      function signUp() {
+        const token = localStorage.getItem('jwt');
+        axios.get('/api/signUp', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then(res => {
+            if (res && res.data && res.data.success) {
+                history.pushState(null, null, '/api/signUp');
+                document.querySelector('h1.row').innerHTML = 'Sign up';
+                document.querySelector('main').innerHTML = res.data.myContent;
+            }
+        });
+    }
+
+      function logout() {
+        localStorage.clear();
+        window.location.reload();
+        window.location.href = "/login.html";
+      }
+
+      function onLoad() {
+        const token = localStorage.getItem("jwt");
+        if (token) {
+          getDashboard();
+        }
+      }
+      onLoad();
+    </script>
+  </body>
+</html>

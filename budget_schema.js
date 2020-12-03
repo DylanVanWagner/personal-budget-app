@@ -16,6 +16,9 @@ const budgetSchema = new mongoose.Schema({
         validator: [colorValidator, 'Invalid color'],
         required: true
     }
-}, { collection: 'addEntry' })
+}, 
+{ 
+    collection: 'addEntry' 
+})
 
 module.exports = mongoose.model('mongo_nodejs', budgetSchema)

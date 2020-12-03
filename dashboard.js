@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 const mongoose = require("mongoose");
-const budgetModel = require("./models/budget_schema");
+const budgetModel = require("./budget_schema.js");
 const bodyParser = require("body-parser");
 app.use(bodyParser.json())
 
@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use('/', express.static('public'));
 
-app.get("/mongo_nodejs", (req, res) => {
+app.get("./dashboard.html", (req, res) => {
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => {
             console.log("Connected to the database");

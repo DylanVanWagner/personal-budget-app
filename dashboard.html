@@ -1,121 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This is an SEO Change -->
-    <meta name = "description" content="Assignment 3 for 4166">
-    <title>Personal Budget</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>budget manager</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
 
-    <div class="menu">
-        <ul>
-            <li><a href="/">Homepage</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="https://google.com">Google</a></li>
-        </ul>
-    </div>
-
-    <div class="hero">
-        <h1>Personal Budget</h1>
-        <h2>A personal-budget management app</h2>
-        <!-- This is an SEO Change -->
-        <h2>Created by the best professionals around</h2>
-    </div>
-
-    <div class="container center">
-
-        <div class="page-area">
-
-            <div class="text-box">
-                <h1>Stay on track</h1>
-                <p>
-                    Do you know where you are spending your money? If you really stop to track it down,
-                    you would get surprised! Proper budget management depends on real data... and this
-                    app will help you with that!
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Alerts</h1>
-                <p>
-                    What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Results</h1>
-                <p>
-                    People who stick to a financial plan, budgeting every expense, get out of debt faster!
-                    Also, they to live happier lives... since they expend without guilt or fear... 
-                    because they know it is all good and accounted for.
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Free</h1>
-                <p>
-                    This app is free!!! And you are the only one holding your data!
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Stay on track</h1>
-                <p>
-                    Do you know where you are spending your money? If you really stop to track it down,
-                    you would get surprised! Proper budget management depends on real data... and this
-                    app will help you with that!
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Alerts</h1>
-                <p>
-                    What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Results</h1>
-                <p>
-                    People who stick to a financial plan, budgeting every expense, get out of debt faster!
-                    Also, they to live happier lives... since they expend without guilt or fear... 
-                    because they know it is all good and accounted for.
-                </p>
-            </div>
-    
-            <div class="text-box">
-                <h1>Free</h1>
-                <p>
-                    This app is free!!! And you are the only one holding your data!
-                </p>
-            </div>
-            <!-- This is an A11y Change -->
-            <div class="table" caption="A11y change">
-                <div class="center">
-                    <th>Result Cost</th>
-                    <th>Free</th> 
-                </div>
-            </div>
-
-            <article>
-                <h1>Chart</h1>
-                <p>
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                </p>
-            </article>
-
+  <body>
+    <!--website banner-->
+    <div class="container-fluid" id="banner">
+      <div class="container" id="head-content">
+        <div id="web-graphic"></div>
+        <div id="head-title">
+          <h1>Budget Manager</h1>
+          <h4>manage your personal budget</h4>
         </div>
+      </div>
+    </div>
 
+    <!--navigation menu-->
+    <nav class="navbar navbar-inverse" id="menubar">
+      <div class="container-fluid" id="navbar">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Budget Manager</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li id="login">
+            <a href="login.html"
+              ><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="homepage.html">Dashboard</a></li>
+          <li id="contact"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" id="dash-container">
+      <div class="row">
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select chart <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Pie chart</a></li>
+            <li><a href="#">Bar chart</a></li>
+          </ul>
+        </div>
+        <canvas id="myChart" , width="400" , height="400"></canvas>
+      </div>
+      <div class="row">ashfdljk</div>
+      <div class="row">ashfdljk</div>
+    </div>
+
+    <div class="container" id="dash-container">
+      <div class="canvas-holder">
+        <h1 id="container-title">Budget Tracker</h1>
+        <div class="chart-details">
+          <hr style="width: 100%" />
+          <h4>
+            Monthly Income:
+            <p id="income-total">$0</p>
+          </h4>
+          <hr style="width: 100%" />
+          <h4>
+            Monthly Expenses:
+            <p id="expenses-total">$0</p>
+          </h4>
+          <hr style="width: 100%" />
+          <h4>
+            Savings:
+            <p id="savings-total">$0</p>
+          </h4>
+          <hr style="width: 100%" />
+        </div>
+        <div class="chart-info">
+          <canvas id="myChart" width="100" height="100"></canvas>
+        </div>
+      </div>
+      <div id="information">
+        <div class="row">
+          <header>
+            Income
+          </header>
+          <input type="number" placeholder="total income" id="total-income"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Living and Housing
+          </header>
+          <input type="number" placeholder="rent" id="rent"/>
+          <input type="number" placeholder="property tax" id="property-tax"/>
+          <input type="number" placeholder="utilities" id="utilities"/>
+          <br><br>
+          <input type="number" placeholder="groceries" id="groceries"/>
+          <input type="number" placeholder="other" id="living-other"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Health
+          </header>
+          <input type="number" placeholder="health insurance" id="health-insurance"/>
+          <input type="number" placeholder="medical expenses" id="medical-expenses"/>
+          <input type="number" placeholder="other" id="health-other"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Transportation
+          </header>
+          <input type="number" placeholder="loans" id="auto-loan"/>
+          <input type="number" placeholder="insurance" id="auto-insurance"/>
+          <input type="number" placeholder="fuel" id="auto-fuel"/>
+          <br><br>
+          <input type="number" placeholder="maintenance" id="auto-maintenance"/>
+          <input type="number" placeholder="other" id="auto-other"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Education
+          </header>
+          <input type="number" placeholder="tuition" id="tuition"/>
+          <input type="number" placeholder="fees" id="education-fees"/>
+          <input type="number" placeholder="supplies" id="education-supplies"/>
+          <br><br>
+          <input type="number" placeholder="other" id="education-other"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Other Expenses
+          </header>
+          <input type="number" placeholder="entertainment" id="expenses-entertainment"/>
+          <input type="number" placeholder="clothing" id="expenses-clothing"/>
+          <input type="number" placeholder="personal care" id="expenses-pcare"/>
+          <br><br>
+          <input type="number" placeholder="other" id="expenses-other"/>
+          <br><br>
+          <hr>
+        </div>
+        <div class="row">
+          <header>
+            Savings
+          </header>
+          <input type="number" placeholder="total savings" id="total-savings"/>
+          <input type="number" placeholder="investments" id="savings-investments"/>
+          <input type="number" placeholder="other" id="savings-other"/>
+          <br><br>
+        </div>
+      </div>
     </div>
 
     <div class="bottom">
         <div class="center">
-            All rights reserved &copy; Fabio Nolasco
+            Dylan Van Wagner
         </div>
     </div>
 
@@ -123,15 +170,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     
     <script>
+        // var dataSource = {
+        //     datasets: [
+        //         {
+        //             data: [],
+        //             backgroundColor: [],
+        //         }
+        //     ],
+        //     labels: []
+        // };
+
         var dataSource = {
-            datasets: [
-                {
-                    data: [],
-                    backgroundColor: [],
-                }
+        datasets: [
+          {
+            data: [400, 200, 400, 200, 500, 120, 100, 130],
+            backgroundColor: [
+              "#ffcd56",
+              "#ff6384",
+              "#36a2eb",
+              "#fd6b19",
+              "#2a5296",
+              "#6e3aa6",
+              "#e31b1b",
+              "#2ec747",
             ],
-            labels: []
-        };
+          },
+        ],
+        labels: [
+          "Taxes",
+          "Loans",
+          "Groceries",
+          "Entertainment",
+          "House Bill",
+          "Car Bill",
+          "Electric Bill",
+          "Water Bill",
+        ],
+      };
 
         function createChart() {
             var ctx = document.getElementById('myChart').getContext('2d');
@@ -150,7 +225,7 @@
         }
         
         function getBudget() {
-            axios.get('http://localhost:3000/mongo_nodejs')
+            axios.get('http://localhost:3000/mongo_node.js')
             .then(function (res) {
                 console.log(res);
                 for (var i = 0; i < res.data.length; i++) {
