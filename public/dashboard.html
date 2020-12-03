@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>budget manager</title>
     <link rel="stylesheet" href="/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
   </head>
 
   <body>
@@ -38,7 +42,7 @@
       </div>
     </nav>
 
-    <div class="container" id="dash-container">
+    <!-- <div class="container" id="dash-container">
       <div class="row">
         <div class="btn-group">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select chart <span class="caret"></span>
@@ -52,7 +56,7 @@
       </div>
       <div class="row">ashfdljk</div>
       <div class="row">ashfdljk</div>
-    </div>
+    </div> -->
 
     <div class="container" id="dash-container">
       <div class="canvas-holder">
@@ -222,10 +226,11 @@
                 type: 'bar',
                 data: dataSource
             })
+            getBudget();
         }
         
         function getBudget() {
-            axios.get('http://localhost:3000/mongo_node.js')
+            axios.get('http://localhost:3000/mongo_nodejs')
             .then(function (res) {
                 console.log(res);
                 for (var i = 0; i < res.data.length; i++) {

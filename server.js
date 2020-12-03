@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require("mongoose");
 const budgetModel = require("./budget_schema");
+const { link } = require('fs');
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -15,12 +16,13 @@ app.use((req, res, next) => {
 });
 
 app.use(cors());
-app.use('/', express.static('public'));
+// app.use('/', express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = 3000;
-let url = 'mongodb://localhost:27017/mongo_nodejs';
+let url = 'mongodb://localhost:27017/login';
 
 const secretKey = 'My super secret key';
 const jwtMW = exjwt ({
@@ -51,7 +53,6 @@ app.post("/api/login", (req, res) => {
         secretKey,
         { expiresIn: "7d" }
       );
-
       res.json({
         success: true,
         err: null,
@@ -68,7 +69,7 @@ app.post("/api/login", (req, res) => {
   }
 });
 
-app.put("/signUp", (req, res) => {
+app.put("/api/signUp", (req, res) => {
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => {
             console.log("Connected to the database");
@@ -93,16 +94,16 @@ app.put("/signUp", (req, res) => {
         })
 })
 
-app.get("/api/dashboard", jwtMW, (req, res) => {
-  res.json({
-    success: true,
-    myContent:
-      "Dashboard content <br> <div><button onclick='href='dashboard.html''>Settings</button><button onclick='logout()'>Log out</button></div>",
-  });
+app.get('/',  (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/homepage.html"));
 });
 
 app.get('/',  (req, res) => {
   res.sendFile(path.join(__dirname, "/login.html"));
+});
+
+app.get('/',  (req, res) => {
+  res.sendFile(path.join(__dirname, "/dashboard.html"));
 });
 
 app.use(function (err, req, res, next) {
@@ -121,7 +122,7 @@ app.use(function (err, req, res, next) {
 
 //Dashboard.js
 
-app.get("./dashboard.html", (req, res) => {
+app.get("/login", (req, res) => {
   mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => {
             console.log("Connected to the database");
