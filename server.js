@@ -99,11 +99,11 @@ app.get('/',  (req, res) => {
 });
 
 app.get('/',  (req, res) => {
-  res.sendFile(path.join(__dirname, "/login.html"));
+  res.sendFile(path.join(__dirname, "/public/login.html"));
 });
 
 app.get('/',  (req, res) => {
-  res.sendFile(path.join(__dirname, "/dashboard.html"));
+  res.sendFile(path.join(__dirname, "/public/dashboard.html"));
 });
 
 app.use(function (err, req, res, next) {
