@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const PORT = 3000;
-let url = 'mongodb://localhost:27017/login';
+let url = 'mongodb://localhost:27017/mongo_nodejs';
 
 const secretKey = 'My super secret key';
 const jwtMW = exjwt ({
@@ -98,14 +98,6 @@ app.get('/',  (req, res) => {
   res.sendFile(path.join(__dirname, "/public/homepage.html"));
 });
 
-app.get('/',  (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/login.html"));
-});
-
-app.get('/',  (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/dashboard.html"));
-});
-
 app.use(function (err, req, res, next) {
   console.log(err.name === "UnauthorizedError");
   console.log(err);
@@ -153,6 +145,7 @@ app.put("/addEntry", (req, res) => {
                     .then((data) => {
                         console.log(data);
                         res.json("Success");
+                        res.status(200).send(data);
                         mongoose.connection.close();
                     })
                     .catch((connectionError) => {
