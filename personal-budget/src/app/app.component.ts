@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'pb-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'personal-budget';
+
+  constructor(private authenticationService: AuthenticationService) { }
+
+  logout(): void {
+    this.authenticationService.logout();
+  }
 }
