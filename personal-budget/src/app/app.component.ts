@@ -9,9 +9,5 @@ import { AuthenticationService } from './services/authentication.service';
 export class AppComponent {
   title = 'personal-budget';
 
-  constructor(private authenticationService: AuthenticationService) { }
-
-  logout(): void {
-    this.authenticationService.logout();
-  }
+  constructor(public authenticationService: AuthenticationService) { }
 }

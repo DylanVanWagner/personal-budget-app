@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
-import { Users } from '../models/userData';
 
 @Component({
   selector: 'pb-login',
@@ -12,27 +11,27 @@ export class LoginComponent implements OnInit {
 
   isFormValid = false;
   areCredentialsInvalid = false;
+  email: string;
+  password: string;
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(public authenticationService: AuthenticationService, private router: Router) { }
+
+  signup() {
+    this.authenticationService.signup(this.email, this.password);
+    this.email = this.password = '';
+    this.router.navigate(['dashboard'])
+  }
+
+  login() {
+    this.authenticationService.login(this.email, this.password);
+    this.email = this.password = '';
+    this.router.navigate(['dashboard'])
+  }
+
+  logout() {
+    this.authenticationService.logout();
+  }
 
   ngOnInit(): void {
-  }
-
-  onSubmit(users: NgForm): void {
-    if (!users.valid) {
-      this.isFormValid = true;
-      this.areCredentialsInvalid = false;
-      return;
-    }
-    this.checkCredentials(users);
-
-  }
-
-  private checkCredentials(userForm: NgForm): void {
-    const userData = new Users(userForm.value.login, userForm.value.password);
-    if (!this.authenticationService.authenticate(userData)) {
-      this.isFormValid = false;
-      this.areCredentialsInvalid = true;
-    }
   }
 }

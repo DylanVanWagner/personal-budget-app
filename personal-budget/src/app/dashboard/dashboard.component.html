@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>budget manager</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-  </head>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-  <body>
+  <a class="navbar-brand">Budget Manager App</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+      aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/dashboard">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/addBudget">Add Budget <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item pointer">
+              <a class="nav-link" (click)="logout()">Logout</a>
+          </li>
+      </ul>
+  </div>
+</nav>
+
+<body>
     <!--website banner-->
     <div class="container-fluid" id="banner">
       <div class="container" id="head-content">
@@ -21,143 +35,18 @@
         </div>
       </div>
     </div>
-
 <hr>
-
-    <!-- <div class="container" id="dash-container">
-      <div class="row">
-        <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Select chart <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Pie chart</a></li>
-            <li><a href="#">Bar chart</a></li>
-          </ul>
-        </div>
-        <canvas id="myChart" , width="400" , height="400"></canvas>
-      </div>
-      <div class="row">ashfdljk</div>
-      <div class="row">ashfdljk</div>
-    </div> -->
-
-    <div class="container" id="dash-container">
-      <div class="canvas-holder">
-        <h1 id="container-title">Budget Tracker</h1>
-        <div class="chart-details">
-          <hr style="width: 100%" />
-          <h4>
-            Monthly Income:
-            <p id="income-total">$0</p>
-          </h4>
-          <hr style="width: 100%" />
-          <h4>
-            Monthly Expenses:
-            <p id="expenses-total">$0</p>
-          </h4>
-          <hr style="width: 100%" />
-          <h4>
-            Savings:
-            <p id="savings-total">$0</p>
-          </h4>
-          <hr style="width: 100%" />
-        </div>
-        <div class="chart-info">
-          <h1>Charts</h1>
-          <p>
-            <canvas id="myChart" width="100" height="100"></canvas>
-            <canvas id="myChart2" width="100" height="100"></canvas>
-            <canvas id="myChart3" width="100" height="100"></canvas>
-          </p>
-        </div>
-      </div>
-      <div id="information">
-        <div class="row">
-          <header>
-            Income
-          </header>
-          <input type="number" placeholder="total income" id="total-income"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Living and Housing
-          </header>
-          <input type="number" placeholder="rent" id="rent"/>
-          <input type="number" placeholder="property tax" id="property-tax"/>
-          <input type="number" placeholder="utilities" id="utilities"/>
-          <br><br>
-          <input type="number" placeholder="groceries" id="groceries"/>
-          <input type="number" placeholder="other" id="living-other"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Health
-          </header>
-          <input type="number" placeholder="health insurance" id="health-insurance"/>
-          <input type="number" placeholder="medical expenses" id="medical-expenses"/>
-          <input type="number" placeholder="other" id="health-other"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Transportation
-          </header>
-          <input type="number" placeholder="loans" id="auto-loan"/>
-          <input type="number" placeholder="insurance" id="auto-insurance"/>
-          <input type="number" placeholder="fuel" id="auto-fuel"/>
-          <br><br>
-          <input type="number" placeholder="maintenance" id="auto-maintenance"/>
-          <input type="number" placeholder="other" id="auto-other"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Education
-          </header>
-          <input type="number" placeholder="tuition" id="tuition"/>
-          <input type="number" placeholder="fees" id="education-fees"/>
-          <input type="number" placeholder="supplies" id="education-supplies"/>
-          <br><br>
-          <input type="number" placeholder="other" id="education-other"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Other Expenses
-          </header>
-          <input type="number" placeholder="entertainment" id="expenses-entertainment"/>
-          <input type="number" placeholder="clothing" id="expenses-clothing"/>
-          <input type="number" placeholder="personal care" id="expenses-pcare"/>
-          <br><br>
-          <input type="number" placeholder="other" id="expenses-other"/>
-          <br><br>
-          <hr>
-        </div>
-        <div class="row">
-          <header>
-            Savings
-          </header>
-          <input type="number" placeholder="total savings" id="total-savings"/>
-          <input type="number" placeholder="investments" id="savings-investments"/>
-          <input type="number" placeholder="other" id="savings-other"/>
-          <br><br>
-        </div>
-      </div>
-    </div>
-
+    <pb-pie-graph></pb-pie-graph>
+    <pb-bar-graph></pb-bar-graph>
+    <pb-line-graph></pb-line-graph>
     <div class="bottom">
         <div class="center">
             Dylan Van Wagner
         </div>
     </div>
+  </body>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
 
     <script>
@@ -243,7 +132,7 @@
         getBudget();
     </script>
 </body>
-<!-- This is a Semantic HTML Change -->
+This is a Semantic HTML Change
 <footer>
     <div class = "bottom">
         <div class="center">
@@ -251,4 +140,4 @@
         </div>
     </div>
 </footer>
-</html>
+</html> -->

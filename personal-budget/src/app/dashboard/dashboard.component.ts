@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'pb-dashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  isFormValid = true;
+  areCredentialsInvalid = true;
+  isAuthenticated = true;
+
+  constructor(public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
 }

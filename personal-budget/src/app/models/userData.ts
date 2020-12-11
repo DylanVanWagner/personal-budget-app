@@ -1,14 +1,14 @@
 export class Users {
-  private login: string;
+  private email: string;
   private password: string;
 
-  constructor(login: string, password: string) {
-      this.login = login;
+  constructor(email: string, password: string) {
+      this.email = email;
       this.password = password;
   }
 
   getLogin(): string {
-      return this.login;
+      return this.email;
   }
 
   getPassword(): string {

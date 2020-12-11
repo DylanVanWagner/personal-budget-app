@@ -1,45 +1,49 @@
 import { Injectable } from '@angular/core';
-import { Users } from '../models/userData';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
+  user: Observable<firebase.default.User>;
+  public errMsg: any = '';
 
-  private readonly mockUser: Users = new Users('user', 'test');
-  isAuthenticated = false;
-
-  constructor(private router: Router) { }
-
-  authenticate(userData: Users): boolean {
-    if (this.checkCredentials(userData)) {
-      this.isAuthenticated = true;
-      this.router.navigate(['dashboard']);
-      return true;
-    }
-    this.isAuthenticated = false;
-    return false;
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+    this.user = firebaseAuth.authState;
   }
 
-  private checkCredentials(userData: Users): boolean {
-    return this.checkLogin(userData.getLogin()) && this.checkPassword(userData.getPassword());
+  isAuthenticated = true;
+
+  signup(email: string, password: string) {
+    this.firebaseAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((value) => {
+        console.log('Signed Up!', value);
+        this.router.navigate(['dashboard']);
+      })
+      .catch((err) => {
+        console.log('Something went wrong:', err.message);
+        this.errMsg = err.message;
+      });
   }
 
-  private checkLogin(login: string): boolean {
-    return login === this.mockUser.getLogin();
+  login(email: string, password: string) {
+    this.firebaseAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((value) => {
+        console.log('Logged In!');
+        this.router.navigate(['dashboard']);
+      })
+      .catch((err) => {
+        console.log('Something went wrong:', err.message);
+        this.errMsg = err.message;
+      });
   }
 
-  private checkPassword(password: string): boolean {
-    return password === this.mockUser.getPassword();
-  }
-
-  logout(): void {
-    this.isAuthenticated = false;
+  logout() {
+    this.firebaseAuth.signOut();
     this.router.navigate(['']);
-  }
-
-  getIsAuthenticated(): boolean {
-    return this.isAuthenticated;
   }
 }

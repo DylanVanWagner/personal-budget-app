@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'pb-add-budget',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-budget.component.scss']
 })
 export class AddBudgetComponent implements OnInit {
+  isFormValid = true;
+  areCredentialsInvalid = true;
+  isAuthenticated = true;
 
-  constructor() { }
+  constructor(public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
   }
 
+  logout() {
+    this.authenticationService.logout();
+  }
 }

@@ -1,32 +1,26 @@
-<div class="login-wrapper">
-  <div class="card">
-      <div class="card-body">
-          <form class="form-signin" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
-              <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+<div *ngIf="!(authenticationService.user | async)" class="login-container">
+  <div class="login-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <form class="form-signin">
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-              <label for="inputlogin" class="sr-only">Login </label>
-              <input type="text" id="inputLogin" class="form-control" name="login" placeholder="Login" ngModel
-                  required autofocus>
+                <label for="inputlogin" class="sr-only">Login </label>
+                <input type="text" id="inputLogin" class="form-control" name="login" placeholder="Login" [(ngModel)]="email" required>
 
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password"
-                  autocomplete="on" ngModel required>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" autocomplete="on" [(ngModel)]="password" required>
 
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-
-              <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
-                  Please fill all fields.
-              </div>
-              <div class="alert alert-danger" role="alert" *ngIf="areCredentialsInvalid">
-                  Invalid user or password.
-              </div>
-          </form>
-      </div>
+                <button class="btn btn-lg btn-primary btn-block" (click)="login()" [disabled]="!email || !password">Login</button>
+                <button class="btn btn-lg btn-primary btn-block" (click)="signup()" [disabled]="!email || !password">Sign Up</button>
+            </form>
+        </div>
+    </div>
   </div>
 </div>
 
-    <!--footer-->
-    <div class="footer">
+
+    <!-- <div class="footer">
       <p>Author: Dylan Van Wagner</p>
     </div>
 
@@ -95,4 +89,4 @@
         }
       }
       onLoad();
-    </script>
+    </script> -->

@@ -15,15 +15,21 @@
     "@angular/common": "~10.1.4",
     "@angular/compiler": "~10.1.4",
     "@angular/core": "~10.1.4",
+    "@angular/fire": "^6.1.4",
     "@angular/forms": "~10.1.4",
     "@angular/platform-browser": "~10.1.4",
     "@angular/platform-browser-dynamic": "~10.1.4",
     "@angular/router": "~10.1.4",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
+    "firebase": "^8.1.2",
+    "firebaseui": "^4.7.1",
     "jquery": "^3.5.1",
     "mongoose": "^5.11.5",
-    "rxjs": "~6.6.0",
+    "ng-charts": "^1.0.0-alpha",
+    "ng2-charts": "^2.4.2",
+    "node": "^15.3.0",
+    "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
@@ -45,6 +51,7 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "firebase-tools": "^8.0.0"
   }
 }

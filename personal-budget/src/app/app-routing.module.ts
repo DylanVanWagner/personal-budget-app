@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddBudgetComponent } from './add-budget/add-budget.component';
 
 const routes: Routes = [
   {
@@ -16,17 +15,16 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'signup',
-    component : SignupComponent,
-  },
-  {
     path: 'logout',
     component: LoginComponent
   },
   {
+    path: 'addBudget',
+    component: AddBudgetComponent,
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard]
   }
 ];
 
