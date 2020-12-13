@@ -6,15 +6,21 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthenticationService {
   user: Observable<firebase.default.User>;
   public errMsg: any = '';
+  private uid: string;
+
+  getUid(): string {
+    return this.uid;
+  }
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = firebaseAuth.authState;
+    console.log(this.user.subscribe(user =>
+      this.uid = user.uid));
   }
-
-  isAuthenticated = true;
 
   signup(email: string, password: string) {
     this.firebaseAuth

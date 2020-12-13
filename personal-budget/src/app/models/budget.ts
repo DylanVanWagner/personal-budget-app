@@ -1,5 +1,4 @@
-export interface BudgetSchema{
-  id?: string;
-  budget?: number;
-  color?: string;
+export default class BudgetSchema{
+  title: string;
+  budget: number;
 }

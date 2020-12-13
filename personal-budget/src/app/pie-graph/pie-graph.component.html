@@ -1,6 +1,13 @@
-<article>
-  <h1>Pie Graph</h1>
-  <p>
-      <canvas id="pieChart" width="400" height="400"></canvas>
-  </p>
-</article>
+<div>
+  <canvas width="300px" height="300px"
+      baseChart
+      [chartType]= "pieChartType"
+      [datasets]="chartData"
+      [labels]="labels"
+      [options]="pieChartOptions"
+      [legend]="pieChartLegend"
+      [colors]="colors"
+      [plugins]="pieChartPlugins"
+      (chartClick)="onChartClick($event)">
+    </canvas>
+</div>

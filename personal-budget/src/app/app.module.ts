@@ -16,6 +16,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { ChartsModule } from 'ng2-charts';
+import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { environment } from '../environments/environment';
     AddBudgetComponent,
     LineGraphComponent,
     PieGraphComponent,
-    BarGraphComponent
+    BarGraphComponent,
+    AddExpenseComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

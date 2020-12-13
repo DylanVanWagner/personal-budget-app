@@ -27,37 +27,37 @@
   </div>
 </nav>
 
-<div class="budget-wrapper" *ngIf="authenticationService.user | async">
+<div class="expense-wrapper" *ngIf="authenticationService.user | async">
   <div class="card">
     <div class="card-body">
       <div class="submit-form">
         <div *ngIf="!submitted">
           <div class="form-group">
-            <h2>Add Budget</h2>
+            <h2>Add Expenses</h2>
             <label for="title">Title</label>
             <input
               type="text"
               class="form-control"
               id="title"
               required
-              [(ngModel)]="budget.title"
+              [(ngModel)]="expense.title"
               name="title"
             />
           </div>
 
           <div class="form-group">
-            <label for="budget">Budget</label>
+            <label for="expense">Spent</label>
             <input
               class="form-control"
-              id="budget"
+              id="expense"
               required
-              [(ngModel)]="budget.budget"
-              name="budget"
+              [(ngModel)]="expense.expense"
+              name="expense"
             />
           </div>
 
-          <button (click)="addBudget()" class="btn btn-success">Submit</button>
-          <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBudget()">Remove All From Budget Charts</button>
+          <button (click)="addExpense()" class="btn btn-success">Submit</button>
+          <button class="m-3 btn btn-sm btn-danger" (click)="removeAllExpense()">Remove All From Expense Charts</button>
         </div>
 
         <div *ngIf="submitted">

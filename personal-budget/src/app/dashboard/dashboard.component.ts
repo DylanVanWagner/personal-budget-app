@@ -8,10 +8,6 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class DashboardComponent implements OnInit {
 
-  isFormValid = true;
-  areCredentialsInvalid = true;
-  isAuthenticated = true;
-
   constructor(public authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {

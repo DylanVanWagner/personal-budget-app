@@ -1,6 +1,13 @@
-<article>
-  <h1>Bar Chart</h1>
-  <p>
-      <canvas id="barChart" width="400" height="400"></canvas>
-  </p>
-</article>
+<div>
+  <canvas width="300px" height="300px"
+      baseChart
+      [chartType]= "barChartType"
+      [datasets]="chartData"
+      [labels]="labels"
+      [options]="barChartOptions"
+      [legend]="barChartLegend"
+      [colors]="colors"
+      [plugins]="barChartPlugins"
+      (chartClick)="onChartClick($event)">
+    </canvas>
+</div>

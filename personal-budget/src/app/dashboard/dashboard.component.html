@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" *ngIf="authenticationService.user | async">
 
   <a class="navbar-brand">Budget Manager App</a>
 
@@ -15,6 +15,9 @@
           <li class="nav-item active">
             <a class="nav-link" routerLink="/addBudget">Add Budget <span class="sr-only">(current)</span></a>
         </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/addExpense">Add Expense <span class="sr-only">(current)</span></a>
+      </li>
       </ul>
       <ul class="navbar-nav ml-auto">
           <li class="nav-item pointer">
@@ -24,8 +27,7 @@
   </div>
 </nav>
 
-<body>
-    <!--website banner-->
+<body *ngIf="authenticationService.user | async">
     <div class="container-fluid" id="banner">
       <div class="container" id="head-content">
         <div id="web-graphic"></div>
@@ -36,108 +38,24 @@
       </div>
     </div>
 <hr>
+    <h1>Pie Graph of Budget and Expenses</h1>
+    <br>
     <pb-pie-graph></pb-pie-graph>
+
+    <br>
+
+    <h1>Bar Graph of Budget and Expenses</h1>
+    <br>
     <pb-bar-graph></pb-bar-graph>
+
+    <br>
+
+    <h1>Bar Graph of Budget and Expenses</h1>
+    <br>
     <pb-line-graph></pb-line-graph>
     <div class="bottom">
         <div class="center">
-            Dylan Van Wagner
+            By: Dylan Van Wagner
         </div>
     </div>
   </body>
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-
-    <script>
-        // var dataSource = {
-        //     datasets: [
-        //         {
-        //             data: [],
-        //             backgroundColor: [],
-        //         }
-        //     ],
-        //     labels: []
-        // };
-
-        var dataSource = {
-        datasets: [
-          {
-            data: [400, 200, 400, 200, 500, 120, 100, 130],
-            backgroundColor: [
-              "#ffcd56",
-              "#ff6384",
-              "#36a2eb",
-              "#fd6b19",
-              "#2a5296",
-              "#6e3aa6",
-              "#e31b1b",
-              "#2ec747",
-            ],
-          },
-        ],
-        labels: [
-          "Taxes",
-          "Loans",
-          "Groceries",
-          "Entertainment",
-          "House Bill",
-          "Car Bill",
-          "Electric Bill",
-          "Water Bill",
-        ],
-      };
-
-        function createChart() {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myPieChart = new Chart(ctx, {
-                type: 'pie',
-                data: dataSource
-            });
-            getBudget();
-        }
-
-        function createChart2() {
-            var ctx = document.getElementById('myChart2').getContext('2d');
-            var myLineChart = new Chart(ctx, {
-                type: 'line',
-                data: dataSource
-            });
-            getBudget();
-        }
-
-        function createChart3() {
-            var ctx = document.getElementById('myChart3').getContext('2d');
-            var myPieChart = new Chart(ctx, {
-                type: 'bar',
-                data: dataSource
-            });
-            getBudget();
-        }
-
-        function getBudget() {
-            axios.get('/budget')
-            .then(function (res) {
-                console.log(res);
-                for (var i = 0; i < res.data.length; i++) {
-                    dataSource.datasets[0].data[i] = res.data[i].related_value;
-                    dataSource.datasets[0].backgroundColor[i] = res.data[i].color;
-                    dataSource.labels[i] = res.data[i].title;
-                }
-                createChart();
-                createChart2();
-                createChart3();
-            });
-        }
-        getBudget();
-    </script>
-</body>
-This is a Semantic HTML Change
-<footer>
-    <div class = "bottom">
-        <div class="center">
-            Edited by Dylan Van Wagner
-        </div>
-    </div>
-</footer>
-</html> -->

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
-// import { HttpClient } from '@angular/common/http';
+import { BudgetService } from '../services/budget.service';
+import { ExpenseService } from '../services/expense.service';
+import { ChartOptions, ChartType } from 'chart.js';
 
 @Component({
   selector: 'pb-pie-graph',
@@ -10,42 +10,60 @@ import { MultiDataSet, Label } from 'ng2-charts';
 })
 export class PieGraphComponent implements OnInit {
 
-  public dataSource = {
-    datasets: [
-      {
-        data: [],
-        backgroundColor: [
-          'yellow',
-          'orange',
-          'magenta',
-          'red',
-          'green',
-          'blue',
-          'purple',
-        ],
-      },
-    ],
-    labels: [],
-    };
-
-    constructor() {}
-
-    ngOnInit(): void {
-      // this.http.get('http://localhost:3000/budget').subscribe((res: any) => {
-      //   for (var i = 0; i < res.myBudget.length; i++) {
-      //     this.dataSource.datasets[0].data[i] = res.myBudget[i].budget;
-      //     this.dataSource.labels[i] = res.myBudget[i].title;
-      //     this.createChart();
-      //   }
-      // });
-    }
-
-    createChart() {
-      var canvas = <HTMLCanvasElement>document.getElementById('pieChart');
-      const ctx = canvas.getContext('2d');
-      var pieGraph = new Chart(ctx, {
-        type: 'pie',
-        data: this.dataSource,
-      });
-    }
+  pieChartOptions: ChartOptions = {
+    responsive: true
   }
+
+  labels = [];
+
+  chartData = [
+    {
+    label: 'Budget',
+    data: []
+    },
+    {
+      label: 'Expense',
+      data: []
+    },
+  ];
+
+  colors = [
+    {
+      backgroundColor: ['black', 'Red', 'Green', 'blue', 'purple', 'yellow', 'lightblue', 'grey', 'white'],
+      borderColor: "white"
+    },
+    {
+      backgroundColor: ['black', 'Red', 'Green', 'blue', 'purple', 'yellow', 'lightblue', 'grey', 'white'],
+      borderColor: "white"
+    }
+  ];
+
+  pieChartType: ChartType = 'pie';
+  pieChartLegend = true;
+  pieChartPlugins = [];
+
+  onChartClick(event){
+    console.log(event);
+  }
+
+  constructor(private budgetService: BudgetService, private expenseService: ExpenseService) { }
+
+  ngOnInit(): void {
+    this.budgetService.getBudget().valueChanges()
+    .subscribe((res:any)=>{
+      console.log(res);
+      for (let i = 0; i < res.length; i++) {
+        this.chartData[0].data[i] = res[i].budget;
+        this.labels[i] = res[i].title;
+    }
+  });
+  this.expenseService.getAll().valueChanges()
+  .subscribe((res:any)=>{
+    console.log(res);
+    for (let i = 0; i < res.length; i++) {
+      this.chartData[1].data[i] = res[i].expense;
+      this.labels[i] = res[i].title;
+    }
+  });
+}
+}
