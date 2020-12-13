@@ -29,14 +29,6 @@ export class ExpenseService {
     return this.expense.push(expense);
   }
 
-  update(uid: string, value: any): Promise<void> {
-    return this.expense.update(uid, value);
-  }
-
-  delete(uid: string): Promise<void> {
-    return this.expense.remove(uid);
-  }
-
   deleteAll(): Promise<void> {
     return this.expense.remove();
   }
