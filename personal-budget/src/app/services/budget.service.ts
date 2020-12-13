@@ -29,14 +29,6 @@ export class BudgetService {
     return this.budget.push(budget);
   }
 
-  update(uid: string, value: any): Promise<void> {
-    return this.budget.update(uid, value);
-  }
-
-  delete(uid: string): Promise<void> {
-    return this.budget.remove(uid);
-  }
-
   deleteAll(): Promise<void> {
     return this.budget.remove();
   }
